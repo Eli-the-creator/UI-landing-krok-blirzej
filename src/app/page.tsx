@@ -1,4 +1,5 @@
 import EventList from "@/components/eventList/EventList";
+import MapPopover from "@/components/map-popover/MapPopover";
 import Uczestnicy from "@/components/uczestkicy/Uczestnicy";
 
 const eventList = [
@@ -46,17 +47,25 @@ const eventList = [
   },
 ];
 
+const fakeHotelData = {
+  name: "Luxury Hotel Opole",
+  address: "123 Main Street, Cityville",
+  image: "/test.jpg", // Replace with the actual path or StaticImageData
+  google_maps_link: "https://maps.google.com/?q=123+Main+Street",
+  bookings: [
+    { name: "Booking.com", url: "https://www.booking.com/luxury-resort" },
+    { name: "Expedia", url: "https://www.expedia.com/luxury-resort" },
+    // Add more booking platforms as needed
+  ],
+};
+
 export default function Home() {
   return (
     <main className="w-screen h-screen">
       <div className="container pt-12">
-        <Uczestnicy />
-        <div className="w-screen h-screen" />
-        <EventList day="Czwartek" eventList={eventList} />
-        <EventList day="Piatek" eventList={eventList} />
-        <EventList day="Sobota" eventList={eventList} />
-        <div className="w-screen h-screen" />
+        <MapPopover hotel={fakeHotelData} />
       </div>
     </main>
   );
 }
+//
