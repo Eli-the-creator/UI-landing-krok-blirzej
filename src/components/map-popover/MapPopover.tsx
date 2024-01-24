@@ -31,18 +31,27 @@ export default function MapPopover(props: Hotel) {
       </CardHeader>
       <CardContent>
         <Image
-          className="rounded-md"
+          className="rounded-md mb-2"
           width={250}
           height={100}
           src={image}
           alt={name}
         />
-        <CardDescription>Sponsor conferencji</CardDescription>
+        <CardDescription>
+          <Link
+            href={google_maps_link}
+            target="_black"
+            className="text-sky-900 underline font-semibold text-md"
+          >
+            Zobacz lokalizacje
+          </Link>
+        </CardDescription>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex flex-col gap-y-2">
         {bookings.map((el) => (
           <Link
-            className="bg-primary text-white px-4 py-2 rounded-xl"
+            target="_black"
+            className="bg-sky-300 w-full text-center py-1 rounded-md font-semibold"
             href={el.url}
           >
             {el.name}
